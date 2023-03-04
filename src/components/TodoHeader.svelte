@@ -7,7 +7,7 @@
 </script>
 <header>
     <div class="wrap">
-        <h1>SVELTE TODO</h1>
+        <h1>오늘할일</h1>
         <input 
             type="text"
             bind:value={todoValue}

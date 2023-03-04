@@ -31,6 +31,8 @@
 	let todoValue = "";
 	let editMode = "";
 
+	$: todoCount = todos.length;
+
 	function handleCheckTodo(id){
 		todos = todos.map(todo => {
 			if(todo.id === id){
@@ -88,8 +90,10 @@
 	}
 </script>
 
-<div class="app">
-	<TodoHeader bind:todoValue={todoValue} {handleTodoInputKeyup}/>
-	<TodoInfo/>
-	<TodoList {todos} {handleCheckTodo} {handleRemoveTodo} {editMode} {handleChangeEditMode} {handleEidtTodoItem}/>
-</div>
+<body>
+	<div class="app">
+		<TodoHeader bind:todoValue={todoValue} {handleTodoInputKeyup}/>
+		<TodoInfo {todoCount}/>
+		<TodoList {todos} {handleCheckTodo} {handleRemoveTodo} {editMode} {handleChangeEditMode} {handleEidtTodoItem}/>
+	</div>
+</body>
