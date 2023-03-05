@@ -9,4 +9,4 @@
     on:click={() => handleCheckTodo(todo.id)}
 >
 <span>{todo.content}</span>
-<a href="#">X</a>
+<a href="/#">X</a>
