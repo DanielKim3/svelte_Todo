@@ -1,63 +1,164 @@
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
 }
 
 body {
-    line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-    list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-    quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 
 /********** 초기화 끝 ***************************************************/
 
+@keyframes color {
+  0% {
+    background: #33cccc;
+  }
+  20% {
+    background: #33cc36;
+  }
+  40% {
+    background: #b8cc33;
+  }
+  60% {
+    background: #fcca00;
+  }
+  80% {
+    background: #33cc36;
+  }
+  100% {
+    background: #33cccc;
+  }
+}
+
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  background: #33cccc;
+  animation: color 9s infinite linear;
+  text-align: center;
+  padding: 2em;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
   position: relative;
-  background-color: #EDEDED;
+  background-color: #ededed;
   width: 100%;
   display: flex;
   justify-content: center;
   color: #717171;
 }
 
-.app  {
+.app {
   width: 600px;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   padding: 0;
   margin-top: 50px;
@@ -72,7 +173,7 @@ body {
 
 header {
   width: 100%;
-  height: 140px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,12 +182,45 @@ header {
   box-shadow: 10px 5px 5px #e7e7e7;
 
   border-top-left-radius: 5px;
-  border-top-right-radius: 5px; 
+  border-top-right-radius: 5px;
 }
 
 header h1 {
-  color: #343233;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  font-size: 8rem;
+  letter-spacing: 3px;
+  color: transparent;
+  background-clip: text;
+  animation: text-color 9s infinite linear;
+}
+@keyframes text-color {
+  0% {
+    color: #33cccc;
+  }
+  20% {
+    color: #33cc36;
+  }
+  40% {
+    color: #b8cc33;
+  }
+  60% {
+    color: #fcca00;
+  }
+  80% {
+    color: #33cc36;
+  }
+  100% {
+    color: #33cccc;
+  }
+}
+
+@keyframes animate {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50% 0%;
+  }
 }
 
 header p {
@@ -110,8 +244,8 @@ header input {
   align-items: center;
   padding: 0 20px;
   background-color: #ffffff;
-  box-shadow: 10px 5px 5px #e7e7e7;   
-  border-bottom: 1px solid #EAE9EA;
+  box-shadow: 10px 5px 5px #e7e7e7;
+  border-bottom: 1px solid #eae9ea;
 }
 
 .info span {
@@ -121,19 +255,19 @@ header input {
 .main {
   width: 100%;
   /* 최상단 메뉴 있을 경울 - 50*/
-  max-height: calc(100vh - 310px); 
+  max-height: calc(100vh - 310px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 10px 5px 5px #e7e7e7;   
+  box-shadow: 10px 5px 5px #e7e7e7;
 
-  overflow-y: scroll;
+  //overflow-y: scroll;
   /* 스크롤 숨기고 스크롤은 되게: IE, Edge, Firefox */
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.main::-webkit-scrollbar  {
+.main::-webkit-scrollbar {
   display: none;
 }
 
@@ -150,13 +284,12 @@ header input {
   background-color: #ffffff;
   font-size: 1rem;
   color: #444444;
-  border-bottom: 1px solid #eaeaea;    
+  border-bottom: 1px solid #eaeaea;
 }
 
 .main ul li:last-child {
-
   border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;  
+  border-bottom-right-radius: 5px;
 }
 
 .main ul li span {
@@ -164,7 +297,7 @@ header input {
 }
 
 .main ul li input[type="checkbox"] {
-  width:20px;
+  width: 20px;
   height: 20px;
   margin-right: 15px;
 }
@@ -183,7 +316,6 @@ header input {
   right: 20px;
   text-decoration: none;
   color: #444444;
-
 }
 
 /********** utils ***************************************************/
@@ -211,5 +343,5 @@ header input {
 }
 
 .located {
-  border-bottom: 2px solid #005EFF;
+  border-bottom: 2px solid #005eff;
 }

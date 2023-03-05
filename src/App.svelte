@@ -26,20 +26,74 @@
 			content: '네 번째 할일',
 			done: false
 		}
-	]
+	];
+
+	let todoValue = "";
+	let editMode = "";
+
+	$: todoCount = todos.length;
 
 	function handleCheckTodo(id){
 		todos = todos.map(todo => {
-			if(todo.id===id){
+			if(todo.id === id){
 				todo.done = !todo.done;
 			}
-			return todo;
+			return todo
 		})
+	};
+
+	function addTodoItem(){
+		if(todoValue){
+			const newTodo = {
+				id: uuid(),
+				content: todoValue,
+				done: false,
+			}
+			todos = [...todos, newTodo];
+			todoValue = "";
+		}
+	};
+
+	function handleTodoInputKeyup(e){
+		if(e.keyCode === 13){
+			console.log(`todoValue: ${e.target.value}`)
+			addTodoItem();
+		}
+	};
+
+	function handleRemoveTodo(id){
+		todos = todos.filter(todo => todo.id !== id);
+	};
+
+	function handleChangeEditMode(id){
+		editMode = id;
+	};
+
+	function closeEditMode(){
+		editMode = "";
+	};
+
+	function handleEidtTodoItem(e, eidtTodo){
+		if(e.keyCode === 13){
+			editTodoItem(eidtTodo);
+		}
+	}
+
+	function editTodoItem(editTodo){
+		todos = todos.map(todo => {
+			if(todo.id === editTodo.id){
+				todo = editTodo
+			}
+			return todo;
+		});
+		closeEditMode();
 	}
 </script>
 
-<div class="app">
-	<TodoHeader/>
-	<TodoInfo/>
-	<TodoList {todos}/>
-</div>
+<body>
+	<div class="app">
+		<TodoHeader bind:todoValue={todoValue} {handleTodoInputKeyup}/>
+		<TodoInfo {todoCount}/>
+		<TodoList {todos} {handleCheckTodo} {handleRemoveTodo} {editMode} {handleChangeEditMode} {handleEidtTodoItem}/>
+	</div>
+</body>
