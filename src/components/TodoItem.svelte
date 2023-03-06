@@ -12,6 +12,7 @@
     bind:checked={todo.done}
     on:click={() => handleCheckTodo(todo.id)}
 >
+<a href="/#">X</a>
 {#if editMode === todo.id}
 <input 
     type="text"
