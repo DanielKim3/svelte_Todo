@@ -2,7 +2,7 @@
 	import TodoHeader from "./components/TodoHeader.svelte";
 	import TodoInfo from "./components/TodoInfo.svelte";
 	import TodoList from "./components/TodoList.svelte";
-	import constant from "./constant";
+	import Constant from "./constant";
 
 	import {v4 as uuid} from 'uuid';
 
@@ -38,9 +38,9 @@
 	$: fetchTodos = todos;
 
 	$: {
-		if(viewMode === constant.ALL) fetchTodos = todos;
-		if(viewMode === constant.ACTIVE) fetchTodos = todos.filter(todo => todo.done === false);
-		if(viewMode === constant.DONE) fetchTodos = todos.filter(todo => todo.done === true);
+		if(viewMode === Constant.ALL) fetchTodos = todos;
+		if(viewMode === Constant.ACTIVE) fetchTodos = todos.filter(todo => todo.done === false);
+		if(viewMode === Constant.DONE) fetchTodos = todos.filter(todo => todo.done === true);
 	}
 
 	function handleCheckTodo(id){

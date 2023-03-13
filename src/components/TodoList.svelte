@@ -1,5 +1,7 @@
 <script>
-    import TodoItem from './TodoItem.svelte'
+    import TodoItem from './TodoItem.svelte';
+    import {fade, slide} from 'svelte/transition';
+    import {flip} from 'svelte/animate';
 
     export let handleCheckTodo;
     export let handleRemoveTodo;
@@ -12,7 +14,11 @@
 <div class="main">
     <ul>
         {#each fetchTodos as todo, index(todo)}
-            <li>
+            <li 
+                in:slide
+                out:fade
+                animate:flip={{duration:300}}
+                >
                 <TodoItem 
                     {todo}
                     {handleCheckTodo}
